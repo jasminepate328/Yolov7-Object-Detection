@@ -11,7 +11,7 @@ def load_cars_df(annontations_file_path, images_path):
     annotations_df.loc[:, "class_name"] = "car"
     annotations_df.loc[:, "has_annotation"] = True
 
-    # adding 100 empty images to the dataset
+    # add 100 empty images to the dataset
     empty_images = sorted(set(all_images) - set(annotations_df.image.unique()))
     non_annotated_df = pd.DataFrame(list(empty_images)[:100], columns=["image"])
     non_annotated_df.loc[:, "has_annotation"] = False
